@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class MainComponent  {
   title = 'Angular Task';
-  public showToaster(): void {
-
-  }
 }

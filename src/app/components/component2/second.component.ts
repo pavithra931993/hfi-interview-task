@@ -9,23 +9,25 @@ import { ToasterService } from './../../services/toaster.service';
 })
 export class SecondComponent  {
   name = 'Component 2';
+  formSubmitted: boolean = false;
   public options = {
     autoClose: true,
-    duration: 15000
+    duration: 10000
   }
 
   constructor(private toasterService: ToasterService) { }
 
-  userForm = new FormGroup({
+  toastForm = new FormGroup({
     notificationText: new FormControl('', [Validators.required])
   });
 
   onFormSubmit() {
-    console.log(this.userForm.valid)
-    if(this.userForm.valid) {
-      const message = this.userForm.get('notificationText').value;
+    this.formSubmitted = true;
+    if(this.toastForm.valid) {
+      const message = this.toastForm.get('notificationText').value;
       this.toasterService.show(message, this.options)
-      this.userForm.reset();
+      this.toastForm.reset();
+      this.formSubmitted = false;
     }
   }
 }

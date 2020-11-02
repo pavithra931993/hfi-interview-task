@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Toast } from './toaster.model';
@@ -11,20 +11,16 @@ import { ToasterService } from './../../services/toaster.service';
   styleUrls: [ './toaster.component.css' ]
 })
 export class ToastComponent implements OnInit, OnDestroy {
-    @Input() id = 'default-toast';
-    @Input() fade = true;
-
     toasts: Toast[] = [];
     displayToasts: Toast[] = [];
     defaultDuration:number = 700000;
     toastSubscription: Subscription;
-    routeSubscription: Subscription;
 
     constructor(private router: Router, private toasterService: ToasterService) { }
 
     ngOnInit() {
         // subscribe to new toast notifications
-        this.toastSubscription = this.toasterService.onToast(this.id)
+        this.toastSubscription = this.toasterService.onToast()
             .subscribe(toast => {
                 if (!toast.message) {
                     return;
@@ -37,26 +33,15 @@ export class ToastComponent implements OnInit, OnDestroy {
                     setTimeout(() => this.removeToast(toast), toastDuration);
                 }
            });
-
-        // clear toasts on location change
-        this.routeSubscription = this.router.events.subscribe(event => {
-            if (event instanceof NavigationStart) {
-                this.toasterService.clear();
-            }
-        });
     }
 
     ngOnDestroy() {
         this.toastSubscription.unsubscribe();
-        this.routeSubscription.unsubscribe();
     }
 
     removeToast(toast: Toast) {
-        if (!this.toasts.includes(toast)) return;
-        setTimeout(() => {
-            this.toasts = this.toasts.filter(x => x !== toast);
-            this.findToastsToDisplay();
-        }, 300);
+        this.toasts = this.toasts.filter(x => x !== toast);
+        this.findToastsToDisplay();
     }
 
     findToastsToDisplay() {

@@ -1,8 +1,11 @@
 <h1>{{name}}</h1>
-<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="toastForm" (ngSubmit)="onFormSubmit()">
     <div class="notification-text">
         <label>Notification Text</label>
         <input type="text" formControlName="notificationText">
+        <div *ngIf="formSubmitted && toastForm.get('notificationText').hasError('required')" ngClass="error">
+            Please enter notification text.
+        </div>
     </div>
     <input type="submit" value="Submit"/>
 </form>
