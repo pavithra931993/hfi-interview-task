@@ -1,0 +1,4 @@
+<div *ngFor="let toast of displayToasts" [class]="'toast toast-success'" [ngClass]="{'show': toast.fade}">
+    <a class="close" (click)="removeToast(toast)">&times;</a>
+    <span [innerHTML]="toast.message"></span>
+</div>

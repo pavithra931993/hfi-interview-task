@@ -1,0 +1,8 @@
+<h1>{{name}}</h1>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <div class="notification-text">
+        <label>Notification Text</label>
+        <input type="text" formControlName="notificationText">
+    </div>
+    <input type="submit" value="Submit"/>
+</form>

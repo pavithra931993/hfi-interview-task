@@ -1,0 +1,17 @@
+p {
+  font-family: Lato;
+}
+.notification-text {
+  padding: 10px 0;
+}
+.notification-text label {
+  display: inline-block;
+  font-size: 14px;
+  padding-right: 10px;
+}
+input[type='text'] {
+  height: 30px;
+  border: 1px solid #00a0e0;
+  display: inline-block;
+  width: 300px;
+}

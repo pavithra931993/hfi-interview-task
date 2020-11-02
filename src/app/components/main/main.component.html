@@ -1,0 +1,16 @@
+<header>
+   <h1>
+       {{title}}
+   </h1>
+    <nav [class] = "'menu'">
+        <ul>
+            <li><a routerLink="/first" routerLinkActive="active-link">Component 1</a></li>
+            <li><a routerLink="/second" routerLinkActive="active-link">Component 2</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Main Container</h1>
+    <router-outlet></router-outlet>
+    <app-toast></app-toast>
+</main>

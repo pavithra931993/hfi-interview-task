@@ -1,0 +1,16 @@
+body{
+    background: #e8e8e8;
+    font-family: Tahoma;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+button, input[type='submit'] {
+    color: #fff;
+    padding: 11px 20px;
+    background-color: #00a0e0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+  

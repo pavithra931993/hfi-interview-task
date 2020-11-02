@@ -1,0 +1,36 @@
+.menu {
+    display: inline-block;
+    border-radius: 4px;
+
+}
+h1{
+    color:#00a2e2;
+}
+header{
+    text-align: center;
+}
+nav{
+    width: 100%;
+    text-align: right;
+  }
+  ul{
+    list-style-type: none;
+
+  }
+  li{
+      display: inline-block;
+      padding: 20px;
+  }
+  a{
+      text-decoration: none;
+      color: #101010;
+      font-size: 20px;
+      font-weight: 600;
+  }
+  a:hover {
+    color: #00a2e2;
+    border-bottom: 1px solid #00a2e2;
+  }
+  .active-link{
+      color: #00a2e2 !important;
+  }
