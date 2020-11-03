@@ -12,11 +12,11 @@ export class SecondComponent  {
   formSubmitted: boolean = false;
   public options = {
     autoClose: true,
-    duration: 10000
+    duration: 2000
   }
 
   constructor(private toasterService: ToasterService) { }
-
+ //create instance for Formgroup
   toastForm = new FormGroup({
     notificationText: new FormControl('', [Validators.required])
   });

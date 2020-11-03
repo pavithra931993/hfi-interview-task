@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router'; 
 
@@ -7,7 +8,9 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { FirstComponent } from './components/component1/first.component';
 import { SecondComponent } from './components/component2/second.component';
-import { ToastComponent } from './components/toaster/toaster.component';
+import { ToasterComponent } from './components/toaster/toaster.component';
+import { ToastComponent } from './components/toaster/toast/toast.component';
+import { PreventAutoCloseDirective } from './directives/toaster.directive';
 import { ToasterService } from './services/toaster.service';
 
 const routes: Routes = [
@@ -19,6 +22,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
@@ -27,7 +31,9 @@ const routes: Routes = [
     MainComponent,
     FirstComponent,
     SecondComponent,
-    ToastComponent
+    ToasterComponent,
+    ToastComponent,
+    PreventAutoCloseDirective
   ],
   providers: [ ToasterService ],
   bootstrap: [ AppComponent ]

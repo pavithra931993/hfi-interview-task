@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { filter } from 'rxjs/operators';
 
 import { Toast } from './../components/toaster/toaster.model';
 
@@ -19,9 +18,5 @@ export class ToasterService {
         const toast = new Toast({ ...options, message });
         toast.id = toast.id || this.defaultId;
         this.subject.next(toast);
-    }
-    // clear toasts
-    clear(id = this.defaultId) {
-        this.subject.next(new Toast({ id }));
     }
 }

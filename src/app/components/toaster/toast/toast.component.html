@@ -1,0 +1,4 @@
+<div [@openClose]="toast.isOpen ? 'open' : '*'" [class]="'toast'" (mouseover)="mouseover()" (mouseleave)="mouseleave()">
+    <a class="close" (click)="emitToastToRemove(toast)">&times;</a>
+    <span [innerHTML]="toast.message"></span>
+</div>
